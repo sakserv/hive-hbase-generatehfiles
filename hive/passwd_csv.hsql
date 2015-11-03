@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS passwd_csv;
+CREATE EXTERNAL TABLE passwd_csv(userid STRING, uid INT, shell STRING)
+ROW FORMAT
+  DELIMITED FIELDS TERMINATED BY ','
+  LINES TERMINATED BY '\n'
+STORED AS TEXTFILE
+LOCATION '/tmp/hive_hfile_test/passwd_csv';

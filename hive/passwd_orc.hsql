@@ -1,0 +1,5 @@
+DROP TABLE IF EXISTS passwd_orc;
+CREATE EXTERNAL TABLE passwd_orc(userid STRING, uid INT, shell STRING)
+STORED AS ORC
+LOCATION '/tmp/hive_hfile_test/passwd_orc';
+INSERT INTO TABLE passwd_orc SELECT * FROM passwd_csv;
